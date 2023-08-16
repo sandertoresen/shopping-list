@@ -1,3 +1,5 @@
+#Unwanted files
+*.db
 # Logs
 logs
 *.log
@@ -41,6 +43,9 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+dist
+dist-ssr
+
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
@@ -119,7 +124,17 @@ dist
 # TernJS port file
 .tern-port
 
-# Stores VSCode versions used for testing VSCode extensions
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.local
 .vscode-test
 
 # yarn v2
