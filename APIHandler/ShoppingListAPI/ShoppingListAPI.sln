@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingListAPI", "ShoppingListAPI\ShoppingListAPI.csproj", "{BEBCB5CE-AF64-4CE2-B0A1-2EF9CCBD4A30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{EBC68989-DE4C-43A9-96C1-4B6AB28C3097}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEBCB5CE-AF64-4CE2-B0A1-2EF9CCBD4A30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEBCB5CE-AF64-4CE2-B0A1-2EF9CCBD4A30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEBCB5CE-AF64-4CE2-B0A1-2EF9CCBD4A30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEBCB5CE-AF64-4CE2-B0A1-2EF9CCBD4A30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBC68989-DE4C-43A9-96C1-4B6AB28C3097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBC68989-DE4C-43A9-96C1-4B6AB28C3097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBC68989-DE4C-43A9-96C1-4B6AB28C3097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBC68989-DE4C-43A9-96C1-4B6AB28C3097}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
