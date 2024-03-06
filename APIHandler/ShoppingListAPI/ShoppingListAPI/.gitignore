@@ -41,3 +41,73 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+*.nuget.props
+*.nuget.targets
+*.user
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# Visual Studio for Mac
+.idea/
+*.userprefs
+
+# Rider
+.idea/
+*.sln.iml
+
+# .NET Core
+*.runtimeconfig.json
+*.runtimeconfig.dev.json
+*.deps.json
+*.dll
+*.exe
+*.pdb
+*.json
+
+# Test Results
+TestResults/
+*.trx
+*.xml
+*.html
+*.coveragexml
+
+# .NET packages directory
+packages/
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# TeamCity
+_TeamCity*
+
+# TFS 2012 Local Workspace
+$tf/
+
+# Guidance Automation Toolkit
+*.gpState
+
+# JustCode
+.JustCode
+
+
+# Others
+ClientApp/build/
+node_modules/
+wwwroot/dist/
+Properties/launchSettings.json
+appsettings.Development.json
+appsettings.json
+bundleconfig.json
+APIHandler/ShoppingListAPI/ShoppingListAPI.sln.DotSettings.user
+APIHandler/ShoppingListAPI/Tests/bin/
