@@ -56,7 +56,6 @@ public class DatabaseCalls
         List<Item> items = new List<Item>();
         using var connection = new MySqlConnection(_connectionString);
         connection.Open();
-        Console.WriteLine("Connected to database!");
 
         string tableName = "Item";
 

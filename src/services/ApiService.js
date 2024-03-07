@@ -9,10 +9,15 @@ import axios, { Axios } from "axios";
 // ApiService.js
 class ApiService {
     constructor() {
-        this.baseURL = import.meta.env.VITE_REACT_APP_BASE_URL_API;
-        this.port = import.meta.env.VITE_REACT_APP_API_PORT;
+        // this.baseURL = import.meta.env.VITE_REACT_APP_BASE_URL_API;
+        // this.port = import.meta.env.VITE_REACT_APP_API_PORT;
+
+        // this.completeBaseURL = `${this.baseURL}:${this.port}`;
+        this.baseURL = "http://localhost"; // Set the base URL without the port
+        this.port = 5164; // Set the desired port
 
         this.completeBaseURL = `${this.baseURL}:${this.port}`;
+
 
         this.instance = axios.create({
             baseURL: this.completeBaseURL,

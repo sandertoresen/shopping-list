@@ -4,6 +4,19 @@ using ShoppingListAPI.models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "allowAll",
+        b =>
+        {
+            b.AllowAnyOrigin() // Allow requests from any origin
+                .AllowAnyMethod() // Allow any HTTP method (GET, POST, etc.)
+                .AllowAnyHeader(); // Allow any headers
+        });
+});
+
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -21,6 +34,8 @@ builder.Services.AddSingleton<DatabaseCalls>(provider =>
 });
 
 var app = builder.Build();
+// Use CORS policy
+app.UseCors("allowAll");
 
 if (app.Environment.IsDevelopment())
 {
