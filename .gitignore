@@ -103,7 +103,7 @@ $tf/
 
 # Others
 ClientApp/build/
-node_modules/
+web/node_modules/
 wwwroot/dist/
 Properties/launchSettings.json
 appsettings.Development.json

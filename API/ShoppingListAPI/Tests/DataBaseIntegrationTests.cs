@@ -18,7 +18,21 @@ public class DataBaseIntegrationTests
     
         _databaseCalls = new DatabaseCalls(config["ConnectionString"]);
     }
-    
+
+    private static int AddValues(int a, int b)
+    {
+        return a + b;
+    }
+
+    [Fact]
+    public void TestAddValues()
+    {
+        const int a = 3;
+        const int b = 7;
+
+        int result = AddValues(a, b);
+        Assert.Equal(10, result);
+    }    
     [Theory]
     [InlineData("TestItem", 1000)]
     public void DataBaseAddItem(string name, int count)
