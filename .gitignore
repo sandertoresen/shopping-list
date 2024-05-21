@@ -101,6 +101,9 @@ $tf/
 .JustCode
 
 *.env
+*.env*
+.env.*
+.env.development
 
 # Others
 ClientApp/build/
