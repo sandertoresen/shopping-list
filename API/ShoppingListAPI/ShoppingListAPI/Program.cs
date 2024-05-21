@@ -2,6 +2,7 @@ using MySql.Data.MySqlClient;
 using ShoppingListAPI.Database;
 using ShoppingListAPI.models;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add CORS policy
@@ -23,7 +24,7 @@ builder.Services.AddSwaggerGen();
 
 IConfiguration config = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
-    .AddEnvironmentVariables()
+    // .AddEnvironmentVariables()
     .Build();
 
 // dependency inject database

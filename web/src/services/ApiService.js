@@ -1,23 +1,10 @@
 import axios, { Axios } from "axios";
 
-// const instance = axios.create({
-//     baseURL: 'https://some-domain.com/api/',
-//     timeout: 1000,
-//     headers: {'X-Custom-Header': 'foobar'}
-//   });
-// http://127.0.0.1:5000/shopping-list
-// ApiService.js
 class ApiService {
     constructor() {
-        // this.baseURL = import.meta.env.VITE_REACT_APP_BASE_URL_API;
-        // this.port = import.meta.env.VITE_REACT_APP_API_PORT;
-
-        // this.completeBaseURL = `${this.baseURL}:${this.port}`;
-        this.baseURL = "http://localhost"; // Set the base URL without the port
-        this.port = 5164; // Set the desired port
-
+        this.baseURL = import.meta.env.VITE_REACT_APP_BASE_URL_API;
+        this.port = import.meta.env.VITE_REACT_APP_API_PORT;
         this.completeBaseURL = `${this.baseURL}:${this.port}`;
-
 
         this.instance = axios.create({
             baseURL: this.completeBaseURL,

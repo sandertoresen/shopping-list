@@ -73,6 +73,7 @@ public class DataBaseIntegrationContainerTests: IAsyncLifetime
     {
         
         await _databaseContainer.StartAsync();
+        _testOutputHelper.WriteLine(_databaseContainer.GetConnectionString());
         _databaseCalls = new DatabaseCalls(_databaseContainer.GetConnectionString());
     }
 

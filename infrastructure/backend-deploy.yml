@@ -1,0 +1,21 @@
+apiVersion: shopping-api/v1
+kind: Deployment
+metadata:
+  name: shopping-api-deployment
+  labels:
+    app: shopping-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: shopping-api
+  template:
+    metadata:
+      labels:
+        app: shopping-api
+    spec:
+      containers:
+      - name: shopping-api
+        image: localhost:5000/shopping-api
+        ports:
+        - containerPort: 8080
