@@ -10,45 +10,64 @@ public class DatabaseCalls
     public DatabaseCalls(string connectionString)
     {
         _connectionString = connectionString;
-        SetupTable();
+        bool connected;
+        do
+        {
+            connected = SetupTable();
+            if(!connected)
+            {
+                Thread.Sleep(3000);
+                Console.WriteLine("Retrying connection...");
+            }
+        }while (!connected);
     }
     
-    private void SetupTable()
+    private bool SetupTable()
     {
-        using (var connection = new MySqlConnection(_connectionString))
+        MySqlConnection connection;
+        try
         {
-            connection.Open();
-            Console.WriteLine("Connected to database!");
+            connection = new MySqlConnection(_connectionString);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Error establishing database connection. Connection string:\n{_connectionString}");
+            Console.WriteLine($"Error: {e}");
+            return false;
+        }
 
-            string tableName = "Item";
+        connection.Open();
+        Console.WriteLine("Connected to database!");
 
-            string checkTableExistsQuery = $"SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'database' AND table_name = '{tableName}'";
-            using (var command = new MySqlCommand(checkTableExistsQuery, connection))
+        string tableName = "Item";
+
+        string checkTableExistsQuery = $"SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'database' AND table_name = '{tableName}'";
+        using (var command = new MySqlCommand(checkTableExistsQuery, connection))
+        {
+            int tableCount = Convert.ToInt32(command.ExecuteScalar());
+            if (tableCount == 0)
             {
-                int tableCount = Convert.ToInt32(command.ExecuteScalar());
-                if (tableCount == 0)
-                {
-                    // Table does not exist, create it
-                    string createTableQuery = $@"
+                // Table does not exist, create it
+                string createTableQuery = $@"
                     CREATE TABLE {tableName} (
                         Id INT PRIMARY KEY AUTO_INCREMENT,
                         Name VARCHAR(255),
                         Count INT
                     )";
-                    using (var createCommand = new MySqlCommand(createTableQuery, connection))
-                    {
-                        createCommand.ExecuteNonQuery();
-                        Console.WriteLine($"Table '{tableName}' created successfully.");
-                    }
-                }
-                else
+                using (var createCommand = new MySqlCommand(createTableQuery, connection))
                 {
-                    Console.WriteLine($"Table '{tableName}' already exists.");
+                    createCommand.ExecuteNonQuery();
+                    Console.WriteLine($"Table '{tableName}' created successfully.");
                 }
             }
-
-            connection.Close();
+            else
+            {
+                Console.WriteLine($"Table '{tableName}' already exists.");
+            }
         }
+            
+        connection.Close();
+        return true;
     }
 
     public IList<Item> GetItems()

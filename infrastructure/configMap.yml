@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-shopping-list
+  namespace: production
+data:
+  # property-like keys; each key maps to a simple value
+  db_password: "passord123"
+  # db_port: "3306"
+  db_host: "mysql.production.svc.cluster.local"
+  connection_string: "Server=mysql.production.svc.cluster.local;Port=3306;Database=mysql;Uid=root;Pwd=passord123"

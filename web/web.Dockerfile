@@ -12,10 +12,7 @@ FROM node:18-alpine
 WORKDIR /app
 COPY --from=build /app .
 
-ENV API_URL="bæbubæbu"
-ENV API_PORT="iuiuiuiuiu"
+EXPOSE 8000
 
-
-EXPOSE 8080
-
-CMD sh ./start.sh "$API_URL" "$API_PORT"
+ENTRYPOINT [ "npm", "run", "preview" ]
+# CMD sh ./start.sh "$API_URL"

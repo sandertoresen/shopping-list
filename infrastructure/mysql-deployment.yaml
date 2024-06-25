@@ -1,20 +1,22 @@
-# define the service the database will belong to
 apiVersion: v1
 kind: Service
 metadata:
   name: mysql
+  namespace: production
 spec:
   ports:
     - port: 3306
   selector:
     app: mysql
-  clusterIP: None
+  # clusterIP: None
+  type: NodePort
 ---
 # run deployment of db
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
+  namespace: production
 spec:
   selector:
     matchLabels:
@@ -32,7 +34,10 @@ spec:
           env:
             # Use secret in real usage
             - name: MYSQL_ROOT_PASSWORD
-              value: password
+              valueFrom:
+                configMapKeyRef:
+                  name: config-shopping-list
+                  key: db_password
           ports:
             - containerPort: 3306
               name: mysql

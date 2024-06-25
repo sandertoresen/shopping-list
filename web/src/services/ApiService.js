@@ -2,12 +2,9 @@ import axios, { Axios } from "axios";
 
 class ApiService {
     constructor() {
-        this.baseURL = import.meta.env.VITE_REACT_APP_BASE_URL_API;
-        this.port = import.meta.env.VITE_REACT_APP_API_PORT;
-        this.completeBaseURL = `${this.baseURL}:${this.port}`;
-
+        console.log(import.meta.env.VITE_URL_API)
         this.instance = axios.create({
-            baseURL: this.completeBaseURL,
+            baseURL: import.meta.env.VITE_URL_API,
             timeout: 1000,
             headers: {
                 "Content-Type": "application/json",
